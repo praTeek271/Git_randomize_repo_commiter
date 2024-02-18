@@ -1,4 +1,5 @@
-# Git Committer
+# Git_randomize_repo_commiter
+
 
 This is a Python script that automates the process of making commits to a Git repository. It's named `git_commiter.py`.
 
