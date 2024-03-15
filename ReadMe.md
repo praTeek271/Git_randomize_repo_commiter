@@ -42,7 +42,7 @@ The script then stores the data in a file named `repos_list.json`. After that ne
 The script first selects the repository from a collection of repository names stoted in a file named `repod_list.json` or `extracted_data.json` . It uses Random module to select a random repository from the list. Then it navigates to the selected repository and makes a clone of the repository. Then it navigates to the cloned repository and makes a commit to the repository. The commit message is also generated randomly and is stored in the `ReadMe.md` file of the repository. The script then pushes the commit to the repository. The script then navigates back to the original directory and deletes the cloned repository.
 
 Makeing a commit to a repository is a very important task and should be done with caution. 
-### <font color="red">**This script is only for `educational purposes` and should not be used for any malicious purposes.**</font>
+### <u><font color="red">**This script is only for `educational purposes` and should not be used for any malicious purposes.**</font></u>
 
 ### License
 ---
