@@ -119,8 +119,10 @@ def repo_selector():
 
 
 if __name__ == "__main__":
-    no_of_times=10
+    
+    no_of_times=14
     for i in range(no_of_times):
+        print("Starting {i}/{no_of_times}".format(i=i+1,no_of_times=no_of_times).center(100,"-"))
         reponame=repo_selector()
         main(git_reo_project_name=reponame)
         time.sleep(5)
