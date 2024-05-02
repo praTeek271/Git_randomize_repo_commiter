@@ -3,7 +3,7 @@ import os
 import  threading
 
 
-def pull_modify_push(url, file_path, changes):
+def pull_modify_push(url, file_path):
     repo_name = url.split("/")[-1].split(".")[0] or None
     
     if os.path.exists(repo_name):
@@ -17,7 +17,7 @@ def pull_modify_push(url, file_path, changes):
     print(repo_name,"< ----  repo name")
     os.chdir(repo_name)
 
-    # list all the files in the directory
+    # list all the files in the directory into the readmr file 
     dir_list = os.listdir()
     if "readme.md" or "Readme.md" in dir_list:
         os.system("type nul > README.md")
@@ -27,7 +27,9 @@ def pull_modify_push(url, file_path, changes):
                 file.write(f"\n- {dfile}")
             file.write(f"\n\n\n\n\n- --->This is a test repository created by @prateek271\n<br><br>\n---\n<br><br>")
             file.write(f"###\tFeatures of the project:\n<br>\n")
-
+            file.write(f"1. This project is automated\n<br>\n")
+    
+    changes = random_changes()
 
     with open(file_path, "a") as file:
         file.write(changes)
@@ -43,16 +45,24 @@ def pull_modify_push(url, file_path, changes):
     os.chdir("..")
     print("Done")
 
-def main(git_reo_project_name="test_webchat"):
-    """
-    This is the main function that performs the following tasks:
-    1. Sets the URL and file path.
-    2. Generates random commit changes.
-    3. Starts a thread to execute the pull_modify_push function.
-    """
 
-    url = f"https://github.com/praTeek271/{git_reo_project_name}.git".format(git_reo_project_name)
-    file_path = "README.md" or "readme.md"
+def random_changes():
+    """
+    This function generates 
+    ## Random commit changes 
+    to be made in the file.
+    Here are some changes:
+    >>> { "welcome to this repo",
+        "hello world",
+        "this is a test repo",
+        "this is a test repo",
+        " created by prateek",
+        "automated commit",
+        "it works like a charm",
+        "i am a bot",.................... 
+        }
+    
+    """
 
     random_commit_changes=[
         "welcome to this repo",
@@ -83,9 +93,23 @@ def main(git_reo_project_name="test_webchat"):
 
     import random
     changes = "\n\n- "+random.choice(random_commit_changes)
+    return changes
+    
+def main(git_reo_project_name="test_webchat"):
+    """
+    This is the main function that performs the following tasks:
+    1. Sets the URL and file path.
+    2. Generates random commit changes.
+    3. Starts a thread to execute the pull_modify_push function.
+    """
+
+    url = f"https://github.com/praTeek271/{git_reo_project_name}.git".format(git_reo_project_name)
+    file_path = "README.md" or "readme.md"
+
+    
     # changes = "\n\n- Hello World"
     print("Starting the process")
-    t2 = threading.Thread(target=pull_modify_push, args=(url, file_path, changes))
+    t2 = threading.Thread(target=pull_modify_push, args=(url, file_path))
     t2.start()
     t2.join()
     # pull_modify_push(url, file_path, changes)
@@ -115,12 +139,13 @@ def repo_selector():
     random_repo = random.choice(repo_list)
     print(random_repo.get("name"))
     pr=random_repo.get("name")
-    return pr     # returning the name of the repo 'randomly selected'
+    return pr.lower()     # returning the name of the repo 'randomly selected'
 
 
 if __name__ == "__main__":
     
-    no_of_times=14
+    no_of_times=39
+    
     for i in range(no_of_times):
         print("Starting {i}/{no_of_times}".format(i=i+1,no_of_times=no_of_times).center(100,"-"))
         reponame=repo_selector()
