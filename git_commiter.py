@@ -54,8 +54,8 @@ def random_changes():
     Here are some changes:
     >>> { "welcome to this repo",
         "hello world",
-        "this is a test repo",
-        "this is a test repo",
+        "this is a test repo commit",
+        "this is a test repo COMMIT",
         " created by prateek",
         "automated commit",
         "it works like a charm",
@@ -152,3 +152,5 @@ if __name__ == "__main__":
         main(git_reo_project_name=reponame)
         time.sleep(5)
         cleaner(reponame)
+
+    print("All Done".center(100,"-"))
